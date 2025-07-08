@@ -1,4 +1,5 @@
 # ライブラリのインポート
+from tkinter import ttk
 from ttkthemes import ThemedTk
 
 
