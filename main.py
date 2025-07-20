@@ -30,6 +30,12 @@ output_button = ttk.Button(root, text="参照")
 env_name_label = ttk.Label(root, text="環境名を入力", font=("Yu Gothic UI", 12))
 env_name_entry = ttk.Entry(root, width=50, font=("Yu Gothic UI", 12))
 
+
+# インストールするパッケージの入力
+package_label = ttk.Label(root, text="インストールするパッケージのコマンドを入力", font=("Yu Gothic UI", 12))
+package_entry = ttk.Entry(root, width=50, font=("Yu Gothic UI", 12))
+package_info_label = ttk.Label(root, text="入力方式：pip install [パッケージ名]", font=("Yu Gothic UI", 10, "italic"))
+
 # グリッドレイアウトの設定
 root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(1, weight=0)
@@ -43,5 +49,9 @@ output_button.grid(row=0, column=3, columnspan=1, padx=5)
 
 env_name_label.grid(row=1, column=1, columnspan=1, pady=10)
 env_name_entry.grid(row=1, column=2, columnspan=1, padx=5)
+
+package_label.grid(row=2, column=1, columnspan=1, pady=10)
+package_entry.grid(row=2, column=2, columnspan=1, padx=5)
+package_info_label.grid(row=3, column=1, columnspan=1, padx=5)
 
 root.mainloop()
