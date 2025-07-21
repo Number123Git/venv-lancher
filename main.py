@@ -42,8 +42,9 @@ dummy_label = ttk.Label(root, text="")
 
 
 # 依存関係の記録の有無を確認
+requirements_var = BooleanVar(value=False)  # 初期値をFalse（チェック状態）に設定
 requirements_label = ttk.Label(root, text="依存関係を記録しますか？", font=("Yu Gothic UI", 11))
-requirements_checkbutton = ttk.Checkbutton(root, text="記録する")
+requirements_checkbutton = ttk.Checkbutton(root, text="記録する", variable=requirements_var)
 
 # グリッドレイアウトの設定
 root.grid_columnconfigure(0, weight=1)
