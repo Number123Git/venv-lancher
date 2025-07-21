@@ -4,7 +4,7 @@ from ttkthemes import ThemedTk
 
 
 # ttkthemeによるテーマの設定
-root = ThemedTk(theme="breeze")
+root = ThemedTk()
 
 # ウィンドウのタイトルとサイズを設定
 root.title("venv-Lancher")
