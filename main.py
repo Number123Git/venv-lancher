@@ -5,6 +5,11 @@ from tkinter import filedialog
 from ttkthemes import ThemedTk
 
 
+# 出力先フォルダの選択
+def dirdialog_clicked():
+    output_dir_path = filedialog.askdirectory(title="環境構築先フォルダを選択")
+
+
 # ttkthemeによるテーマの設定
 root = ThemedTk()
 
@@ -25,7 +30,7 @@ root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 # 出力先フォルダの選択
 output_label = ttk.Label(root, text="環境構築するフォルダを選択", font=("Yu Gothic UI", 11))
 output_folder = ttk.Entry(root, width=50, font=("Yu Gothic UI", 11))
-output_button = ttk.Button(root, text="参照")
+output_button = ttk.Button(root, text="参照", command=dirdialog_clicked)
 
 
 # 環境名の入力
