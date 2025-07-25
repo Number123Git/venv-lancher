@@ -50,7 +50,7 @@ requirements_checkbutton = ttk.Checkbutton(root, text="記録する", variable=r
 dummy_label_2 = ttk.Label(root, text="")
 
 # 実行ボタン
-run_button = ttk.Button(root, text="環境を構築", padding=[10,5])
+run_button = ttk.Button(root, text="環境を構築", padding=[30,10])
 
 # グリッドレイアウトの設定
 root.grid_columnconfigure(0, weight=1)
