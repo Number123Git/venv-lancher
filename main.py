@@ -8,6 +8,7 @@ from ttkthemes import ThemedTk
 # 出力先フォルダの選択
 def dirdialog_clicked():
     output_dir_path = filedialog.askdirectory(title="環境構築先フォルダを選択")
+    # 出力先フォルダが選択された場合、エントリにパスを設定
     if output_dir_path:
         output_folder.delete(0, "end")
         output_folder.insert(0, output_dir_path)
