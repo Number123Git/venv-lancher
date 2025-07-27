@@ -48,6 +48,7 @@ env_name = env_name_entry.get()  # 環境名の取得
 # インストールするパッケージの入力
 package_label = ttk.Label(root, text="インストールするパッケージのコマンドを入力", font=("Yu Gothic UI", 11))
 package_entry = ttk.Entry(root, width=50, font=("Yu Gothic UI", 11))
+package_name = package_entry.get()  # パッケージ名の取得
 package_info_label = ttk.Label(root, text="入力方式：pip install [パッケージ名]", font=("Yu Gothic UI", 10, "italic"))
 
 # 空行用のダミーラベル
