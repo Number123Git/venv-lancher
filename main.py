@@ -10,8 +10,8 @@ def dirdialog_clicked():
     output_dir_path = filedialog.askdirectory(title="環境構築先フォルダを選択")
     # 出力先フォルダが選択された場合、エントリにパスを設定
     if output_dir_path:
-        output_folder.delete(0, "end")
-        output_folder.insert(0, output_dir_path)
+        output_dir_entry.delete(0, "end")
+        output_dir_entry.insert(0, output_dir_path)
 
 
 # ttkthemeによるテーマの設定
@@ -33,7 +33,8 @@ root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
 # 出力先フォルダの選択
 output_label = ttk.Label(root, text="環境構築するフォルダを選択", font=("Yu Gothic UI", 11))
-output_folder = ttk.Entry(root, width=50, font=("Yu Gothic UI", 11))
+output_dir_entry = ttk.Entry(root, width=50, font=("Yu Gothic UI", 11))
+output_dir = output_dir_entry.get()
 output_button = ttk.Button(root, text="参照", command=dirdialog_clicked)
 
 
@@ -70,7 +71,7 @@ root.grid_columnconfigure(3, weight=0)
 root.grid_columnconfigure(4, weight=1)
 
 output_label.grid(row=0, column=1, columnspan=1, pady=10)
-output_folder.grid(row=0, column=2, columnspan=1, padx=5)
+output_dir_entry.grid(row=0, column=2, columnspan=1, padx=5)
 output_button.grid(row=0, column=3, columnspan=1, padx=5)
 
 env_name_label.grid(row=1, column=1, columnspan=1, pady=10)
