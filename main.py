@@ -41,6 +41,7 @@ output_button = ttk.Button(root, text="参照", command=dirdialog_clicked)
 # 環境名の入力
 env_name_label = ttk.Label(root, text="環境名を入力", font=("Yu Gothic UI", 11))
 env_name_entry = ttk.Entry(root, width=50, font=("Yu Gothic UI", 11))
+env_name = env_name_entry.get()
 
 
 # インストールするパッケージの入力
