@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import BooleanVar
 from tkinter import filedialog
 from ttkthemes import ThemedTk
+from utils.path_utils import path_check
 
 
 # 出力先フォルダの選択
@@ -21,6 +22,7 @@ def run_button_clicked():
     package_command = package_entry.get()  # インストールするパッケージを取得
     requirements = requirements_var.get()  # 依存関係を記録するかどうかを取得
 
+    path_check(output_dir)  # 出力先フォルダの存在チェック
 
 # ttkthemeによるテーマの設定
 root = ThemedTk()
