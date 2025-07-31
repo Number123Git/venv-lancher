@@ -34,7 +34,6 @@ root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 # 出力先フォルダの選択
 output_label = ttk.Label(root, text="環境構築するフォルダを選択", font=("Yu Gothic UI", 11))
 output_dir_entry = ttk.Entry(root, width=50, font=("Yu Gothic UI", 11))
-output_dir = output_dir_entry.get()  # 出力フォルダのパスを取得
 # 参照ボタンの作成
 output_button = ttk.Button(root, text="参照", command=dirdialog_clicked)
 
@@ -42,13 +41,11 @@ output_button = ttk.Button(root, text="参照", command=dirdialog_clicked)
 # 環境名の入力
 env_name_label = ttk.Label(root, text="環境名を入力", font=("Yu Gothic UI", 11))
 env_name_entry = ttk.Entry(root, width=50, font=("Yu Gothic UI", 11))
-env_name = env_name_entry.get()  # 環境名の取得
 
 
 # インストールするパッケージの入力
 package_label = ttk.Label(root, text="インストールするパッケージのコマンドを入力", font=("Yu Gothic UI", 11))
 package_entry = ttk.Entry(root, width=50, font=("Yu Gothic UI", 11))
-package_name = package_entry.get()  # パッケージ名の取得
 package_info_label = ttk.Label(root, text="入力方式：pip install [パッケージ名]", font=("Yu Gothic UI", 10, "italic"))
 
 # 空行用のダミーラベル
