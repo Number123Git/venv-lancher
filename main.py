@@ -14,6 +14,14 @@ def dirdialog_clicked():
         output_dir_entry.insert(0, output_dir_path)
 
 
+# 実行ボタンが押された時の処理
+def run_button_clicked():
+    output_dir = output_dir_entry.get()  # 環境構築先フォルダのパスを取得
+    env_name = env_name_entry.get()  # 環境名を取得
+    package_command = package_entry.get()  # インストールするパッケージを取得
+    requirements = requirements_var.get()  # 依存関係を記録するかどうかを取得
+
+
 # ttkthemeによるテーマの設定
 root = ThemedTk()
 
@@ -61,7 +69,7 @@ requirements_checkbutton = ttk.Checkbutton(root, text="記録する", variable=r
 dummy_label_2 = ttk.Label(root, text="")
 
 # 実行ボタン
-run_button = ttk.Button(root, text="環境を構築", padding=[30,10])
+run_button = ttk.Button(root, text="環境を構築", padding=[30,10], command = run_button_clicked)
 
 # グリッドレイアウトの設定
 root.grid_columnconfigure(0, weight=1)
