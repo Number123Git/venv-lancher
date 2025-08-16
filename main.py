@@ -4,6 +4,7 @@ from tkinter import BooleanVar
 from tkinter import filedialog
 from tkinter import messagebox
 from ttkthemes import ThemedTk
+import subprocess
 from utils.path_utils import path_check
 
 
