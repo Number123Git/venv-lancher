@@ -24,7 +24,17 @@ def run_button_clicked():
     package_command = package_entry.get()  # インストールするパッケージを取得
     requirements = requirements_var.get()  # 依存関係を記録するかどうかを取得
 
-    path_check(output_dir)  # 出力先フォルダの存在チェック
+    if not (output_dir):
+        messagebox.showerror("エラー", "出力先フォルダが選択されていません。")  # 出力先フォルダが選択されていない場合のエラーメッセージ
+
+    else:
+        if not env_name:
+            messagebox.showerror("エラー", "環境名が入力されていません。")  # 環境名が入力されていない場合のエラーメッセージ
+
+    # すべての入力が正しい場合、仮想環境を構築する処理を実行
+    if output_dir and env_name:
+        subprocess.run(["scripts/create_venv.bat", output_dir, env_name, package_command, str(requirements)])
+
 
 # ttkthemeによるテーマの設定
 root = ThemedTk()
