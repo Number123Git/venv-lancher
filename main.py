@@ -24,16 +24,34 @@ def run_button_clicked():
     package_command = package_entry.get()  # インストールするパッケージを取得
     requirements = requirements_var.get()  # 依存関係を記録するかどうかを取得
 
-    if not (output_dir):
-        messagebox.showerror("エラー", "出力先フォルダが選択されていません。")  # 出力先フォルダが選択されていない場合のエラーメッセージ
+    # 出力先フォルダが選択されているかチェック
+    if not output_dir:
+        messagebox.showerror("エラー", "出力先フォルダが選択されていません。")
+        return  # 処理を中断
 
-    else:
-        if not env_name:
-            messagebox.showerror("エラー", "環境名が入力されていません。")  # 環境名が入力されていない場合のエラーメッセージ
+    # 環境名が入力されているかチェック
+    if not env_name:
+        messagebox.showerror("エラー", "環境名が入力されていません。")
+        return  # 処理を中断
 
-    # すべての入力が正しい場合、仮想環境を構築する処理を実行
-    if output_dir and env_name:
-        subprocess.run(["scripts/create_venv.bat", output_dir, env_name, package_command, str(requirements)])
+    # path_checkでフォルダの存在確認
+    if not path_check(output_dir):
+        return  # Falseが返された場合は処理を中断
+
+    # 仮想環境の作成
+    try:
+        subprocess.run([
+            "scripts/create_venv.bat",
+            output_dir,
+            env_name,
+            package_command,
+            str(requirements)
+        ], check=True)
+        messagebox.showinfo("成功", "仮想環境の構築が完了しました。")
+    except subprocess.CalledProcessError as e:
+        messagebox.showerror("エラー", f"仮想環境の構築中にエラーが発生しました：{e}")
+    except Exception as e:
+        messagebox.showerror("エラー", f"予期しないエラーが発生しました：{e}")
 
 
 # ttkthemeによるテーマの設定
