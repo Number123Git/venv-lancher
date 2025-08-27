@@ -15,11 +15,11 @@ REM 仮想環境をアクティブ化
 call %env_name%\Scripts\activate
 
 REM パッケージのインストール
-if %package% == "" (
-    %package%
+if not %package% == "" (
+    pip install %package%
 )
 
 REM 依存関係の記録
-if %requirements% = ="True" (
+if %requirements% == "True" (
     pip freeze > requirements.txt
 )
