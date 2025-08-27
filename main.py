@@ -41,7 +41,7 @@ def run_button_clicked():
     # 仮想環境の作成
     try:
         subprocess.run([
-            "scripts/create_venv.bat",
+            "scripts\\create_venv.bat",
             output_dir,
             env_name,
             package_command,
